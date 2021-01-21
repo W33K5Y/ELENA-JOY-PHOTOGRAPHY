@@ -21,16 +21,15 @@
     <header class="main-head">
       <nav>
         <h1 id="logo">Elena Joy</h1>
-        <input type="checkbox" class="menu-check" />
         <ul class="nav-links">
-          <li><a href="about">About</a></li>
-          <li><a href="work">Work</a></li>
-          <li><a href="contact">Contact</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="burger">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span class="line1"></span>
+          <span class="line2"></span>
+          <span class="line3"></span>
         </div>
       </nav>
     </header>
@@ -66,7 +65,7 @@
           />
         </div>
       </section>
-      <section class="about">
+      <section id="about" class="about">
         <div class="about-image">
           <h5>MINIMAL</h5>
           <img
@@ -74,7 +73,7 @@
             alt="portrait-picture"
           />
         </div>
-        <div class="about-text">
+        <div class="about-text flex">
           <h2>Elana Joy</h2>
           <div class="about-life">
             <h3>My Life</h3>
@@ -102,7 +101,82 @@
           </div>
         </div>
       </section>
+      <section id="work" class="gallery">
+        <header class="gallery-head">
+          <h2>
+            <span>E.J</span><br />
+            PHOTOGRAPHY
+          </h2>
+          <!-- <p>My work pictures that I took</p> -->
+        </header>
+        <img
+          class="gallery1"
+          src="./Starter-Files/img/gallery-1.jpg"
+          alt="Man In Suit"
+        />
+        <img
+          class="gallery2"
+          src="./Starter-Files/img/gallery-2.jpg"
+          alt="Lady In Coat"
+        />
+        <img
+          class="gallery3"
+          src="./Starter-Files/img/gallery-3.jpg"
+          alt="Lady In T-shirt"
+        />
+        <img
+          class="gallery4"
+          src="./Starter-Files/img/gallery-4.jpg"
+          alt="Lady In Jacket"
+        />
+      </section>
+      <section id="contact" class="contact">
+        <div class="big-wrap">
+          <div class="form-wrapper flex">
+            <h2>
+              Get In <br />
+              <span> Touch </span>
+            </h2>
+            <form>
+              <label for="email">Your Email:</label>
+              <input type="email" id="email" required />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+          <img
+            class="elena-back"
+            src="./Starter-Files/img/contact-image.jpg"
+            alt="Elena-Joy"
+          />
+        </div>
+      </section>
     </main>
+    <footer>
+      <h4>Elena Joy &copy; 2021</h4>
+      <ul>
+        <li>
+          <a href="#"
+            ><img
+              src="./Starter-Files/img/youtube-symbol-1.svg"
+              alt="You-Tube-Social-Media"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="./Starter-Files/img/twitter-1.svg"
+              alt="Twiter-Social-Media"
+          /></a>
+        </li>
+        <li>
+          <a href="#"
+            ><img
+              src="./Starter-Files/img/instagram-1.svg"
+              alt="Instagram-Social-Media"
+          /></a>
+        </li>
+      </ul>
+    </footer>
     <script src="app.js" async defer></script>
   </body>
 </html>

@@ -23,8 +23,8 @@ html {
   --header2: calc(3.5rem + 1vw);
   --header3: calc(3rem + 1vw);
   --header4: calc(2.4rem + 1vw);
-  --text: calc(1.5rem + 1vw);
-  --big: calc(2.4rem + 1vw);
+  --text: calc(1.1rem + 1vw);
+  --big: calc(6rem + 1vw);
   --special-color: #906272;
   --background-color: #414141;
   --grey-text: #525252;
@@ -101,7 +101,7 @@ nav {
   flex: 1 1 20rem;
 }
 .hero {
-  min-width: 90vh;
+  min-width: auto;
   width: 95%;
   margin: 0 0 0 auto;
   display: flex;
@@ -189,27 +189,179 @@ nav {
   flex-wrap: wrap;
 }
 .about-text {
+  color: white;
+  background: var(--background-color);
   flex: 2 1 40rem;
+  justify-content: space-around;
+}
+.about-text div {
+  padding: 3rem 10rem;
+}
+.about-text h3 {
+  padding: 2rem 0rem;
+  font-family: "Ruhl Medium";
+}
+.about-text h2 {
+  font-family: "Vibes";
+  padding: 4rem;
 }
 .about-image {
   flex: 1 1 40rem;
+  position: relative;
+}
+.about-image h5 {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  letter-spacing: 1.8rem;
+}
+.about-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* ! ====== GALLERY ======  */
+/* I have commented out the alternative way to achieve the same effect using CSS-Grid */
+.gallery {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: 1fr 1fr; */
+  grid-template-areas:
+    "pic1 pic1 pic2"
+    "pic3 pic4 pic2";
+  position: relative;
+}
+.gallery img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.gallery1 {
+  grid-area: pic1;
+  /* grid-column: 1/3; */
+}
+.gallery2 {
+  grid-area: pic2;
+  /* grid-column: 3/4; */
+  /* grid-row: 1/3; */
+}
+.gallery3 {
+  grid-area: pic3;
+}
+.gallery4 {
+  grid-area: pic4;
+}
+.gallery-head {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background: var(--background-color);
+  padding: 5rem 10rem;
+  min-width: 50vw;
+}
+.gallery-head h2 {
+  font-family: "Ruhl" sans-serif;
+  letter-spacing: 2rem;
+  font-size: 1.5rem;
+}
+.gallery-head h2 span {
+  font-family: "Vibes";
+  letter-spacing: 1rem;
 }
 
+/*!===== CONTACT  ====== */
+.big-wrap {
+  width: 100%;
+  display: flex;
+}
+.contact {
+  min-height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form-wrapper {
+  flex: 3 1 40rem;
+}
+.form-wrapper h2 {
+  margin: 5rem 0;
+}
+.form-wrapper span {
+  font-size: var(--big);
+  color: var(--special-color);
+}
+.form-wrapper label {
+  display: block;
+}
+.form-wrapper input {
+  display: block;
+  margin: 3rem 0rem;
+  background: var(--background-color);
+  color: white;
+  border: none;
+  padding: 1rem;
+}
+.form-wrapper button {
+  padding: 1rem 8rem;
+  background: var(--special-color);
+  color: white;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
+.contact img {
+  flex: 1 1 40rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.big-wrap {
+  min-width: auto;
+  width: 95%;
+  margin: 0 0 0 auto;
+}
+/*!===== FOOTER ====== */
+
+footer {
+  background: var(--background-color);
+  color: white;
+  display: flex;
+  padding: 3rem 5%;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+footer ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+footer h4 {
+  flex: 3 1 40rem;
+  font-size: calc(1.4rem + 1vw);
+}
 /*!===== MEDIA QUERIES ====== */
+
 @media screen and (max-width: 842px) {
   .hero {
     width: 100%;
+    min-width: auto;
   }
   .hero-introduction p {
     padding: 5rem 3rem;
   }
   /* BURGER THING */
-  .burger,
-  .menu-check {
+  .burger {
     display: block;
   }
   .burger {
     position: relative;
+    cursor: pointer;
   }
   .burger span {
     padding: 0.2rem 2rem;
@@ -232,32 +384,89 @@ nav {
     left: 100%;
     flex-direction: column;
     align-items: center;
-    transition: transform 1s ease-in-out;
+    transition: transform 0.9s ease-in-out;
   }
-  .menu-check {
-    position: absolute;
-    top: 50%;
-    right: 5%;
-    transform: translate(5%, -50%);
-    width: 5rem;
-    height: 5rem;
-    cursor: pointer;
-    opacity: 0;
-    z-index: 100;
-  }
-  .menu-check:checked + .nav-links {
+
+  .nav-open {
     transform: translateX(-100%);
   }
-  .menu-check:checked ~ .burger span {
-    background: white;
-  }
-  .menu-check:checked ~ .burger span:nth-child(1) {
+  .toggle .line1 {
     transform: rotateZ(45deg) translateY(300%);
+    background-color: white;
   }
-  .menu-check:checked ~ .burger span:nth-child(2) {
+  .toggle .line2 {
     opacity: 0;
   }
-  .menu-check:checked ~ .burger span:nth-child(3) {
+  .toggle .line3 {
     transform: rotateZ(-45deg) translateY(-300%);
+    background-color: white;
+  }
+
+  /* ! ====== MEDIA-Q  About Section  ====== */
+  .about-text div {
+    padding: 3rem 3rem;
+  }
+
+  /* ! ====== MEDIA-Q  Gallery Section ====== */
+  .gallery img {
+    grid-row: auto;
+    grid-column: auto;
+  }
+  .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-areas: unset;
+  }
+  .gallery-head {
+    display: none;
+  }
+  .contact {
+    width: 100%;
+    min-width: auto;
+  }
+}
+/* ! styles for contact */
+@media screen and (max-width: 976px) {
+  .form-wrapper button,
+  .form-wrapper input {
+    min-width: 64vw;
+  }
+  .big-wrap {
+    position: relative;
+    width: 100%;
+    min-width: auto;
+  }
+  .form-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(65, 65, 65, 1);
+    color: white;
+    min-width: 75vw;
+    padding: 1rem;
+  }
+  .form-wrapper input {
+    background: white;
+    color: var(--grey-text);
+  }
+  footer ul {
+    order: 1;
+  }
+  footer h4 {
+    order: 2;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  html {
+    --header1: 3.65rem;
+    --header2: 5rem;
+    --header3: 4rem;
+    --header4: 3rem;
+    --text: 3rem;
+    --big: 6rem;
   }
 }
